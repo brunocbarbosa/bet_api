@@ -1,8 +1,8 @@
 import { ContestRepository } from '@/repositories/contest-repository'
 import { Contest } from '@prisma/client'
+import { ContestNumberAlreadyExistsError } from './errors/contest-number-already-exists-error'
 
 interface registerContestRequest {
-  id: string
   number: number
   name: string
   prize: number
@@ -22,6 +22,11 @@ export class RegisterContestUseCase {
     prize,
     raffle_date,
   }: registerContestRequest): Promise<registerContestResponse> {
+    const contestWithSameEmail =
+      await this.contestRepository.findByContestNumber(number)
+
+    if (contestWithSameEmail) throw new ContestNumberAlreadyExistsError()
+
     const contest = await this.contestRepository.create({
       name,
       number,
