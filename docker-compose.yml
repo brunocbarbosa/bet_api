@@ -1,0 +1,2 @@
+# docker run --name bet_api -e POSTGRESQL_USERNAME=bet -e POSTGRESQL_PASSWORD=bet -e
+# POSTGRESQL_DATABASE=betapi -p 5432:5432 bitnami/postgresql
