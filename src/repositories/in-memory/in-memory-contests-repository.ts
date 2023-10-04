@@ -5,6 +5,14 @@ import { randomUUID } from 'node:crypto'
 export class InMemoryContestsRepository implements ContestRepository {
   public items: Contest[] = []
 
+  async findById(id: string) {
+    const contest = this.items.find((item) => item.id === id)
+
+    if (!contest) return null
+
+    return contest
+  }
+
   async findByContestNumber(contestNumber: number) {
     const contest = this.items.find((item) => item.number === contestNumber)
 

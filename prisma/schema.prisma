@@ -12,9 +12,28 @@ datasource db {
 
 model Contest {
   id          String   @id @default(uuid())
-  number      Int
+  number      Int      @unique
   name        String
   prize       Float
   raffle_date DateTime
   created_at  DateTime @default(now())
+  Ticket      Ticket[]
+}
+
+model Ticket {
+  id         String   @id @default(uuid())
+  city       String
+  created_at DateTime @default(now())
+  Bet        Bet[]
+
+  Contest    Contest @relation(fields: [contest_id], references: [id])
+  contest_id String
+}
+
+model Bet {
+  id         String @id @default(uuid())
+  bet_number Int
+
+  Ticket    Ticket @relation(fields: [ticket_id], references: [id])
+  ticket_id String
 }
