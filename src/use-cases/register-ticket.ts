@@ -1,7 +1,9 @@
 import { ContestRepository } from '@/repositories/contest-repository'
 import { TicketRepository } from '@/repositories/ticket-repository'
-import { Bet, Ticket } from '@prisma/client'
+import { Ticket } from '@prisma/client'
 import { ContestNotFoundError } from './errors/contest-not-found-error'
+import { TicketLessThanMinumumError } from './errors/ticket-less-than-minimum'
+import { TicketGreaterThanMaximumError } from './errors/ticket-greater-than-maximum'
 
 interface registerTicketRequest {
   city: string
@@ -27,6 +29,11 @@ export class RegisterTicketUseCase {
     const contest = await this.contestRepository.findById(contestId)
 
     if (!contest) throw new ContestNotFoundError()
+
+    if (bets.length < contest.min_number) throw new TicketLessThanMinumumError()
+
+    if (bets.length > contest.max_number)
+      throw new TicketGreaterThanMaximumError()
 
     const ticket = await this.ticketRepository.create(
       {

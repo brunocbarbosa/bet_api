@@ -13,6 +13,8 @@ datasource db {
 model Contest {
   id          String   @id @default(uuid())
   number      Int      @unique
+  min_number  Int
+  max_number  Int
   name        String
   prize       Float
   raffle_date DateTime

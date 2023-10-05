@@ -4,6 +4,8 @@ import { ContestNumberAlreadyExistsError } from './errors/contest-number-already
 
 interface registerContestRequest {
   number: number
+  min_number: number
+  max_number: number
   name: string
   prize: number
   raffle_date: Date
@@ -19,6 +21,8 @@ export class RegisterContestUseCase {
   async execute({
     name,
     number,
+    min_number,
+    max_number,
     prize,
     raffle_date,
   }: registerContestRequest): Promise<registerContestResponse> {
@@ -30,6 +34,8 @@ export class RegisterContestUseCase {
     const contest = await this.contestRepository.create({
       name,
       number,
+      min_number,
+      max_number,
       prize,
       raffle_date,
     })

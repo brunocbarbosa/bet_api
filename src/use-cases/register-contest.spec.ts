@@ -16,6 +16,8 @@ describe('Contest Use Case', () => {
     const { contest } = await sut.execute({
       name: 'Mega Money',
       number: 2328,
+      min_number: 5,
+      max_number: 15,
       prize: 1000000,
       raffle_date: new Date('10/05/2023'),
     })
@@ -29,6 +31,8 @@ describe('Contest Use Case', () => {
     await sut.execute({
       name: 'Mega Money',
       number,
+      min_number: 5,
+      max_number: 15,
       prize: 1000000,
       raffle_date: new Date('10/05/2023'),
     })
@@ -36,7 +40,9 @@ describe('Contest Use Case', () => {
     await expect(() =>
       sut.execute({
         name: 'Mega Money',
-        number: 2328,
+        number,
+        min_number: 5,
+        max_number: 15,
         prize: 1000000,
         raffle_date: new Date('10/05/2023'),
       }),

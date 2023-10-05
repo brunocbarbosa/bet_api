@@ -25,6 +25,8 @@ export class InMemoryContestsRepository implements ContestRepository {
     const contest = {
       id: randomUUID(),
       number: data.number,
+      min_number: data.min_number,
+      max_number: data.max_number,
       name: data.name,
       prize: data.prize,
       raffle_date: new Date(data.raffle_date),
