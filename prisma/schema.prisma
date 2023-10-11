@@ -23,10 +23,11 @@ model Contest {
 }
 
 model Ticket {
-  id         String   @id @default(uuid())
-  city       String
-  created_at DateTime @default(now())
-  Bet        Bet[]
+  id             String   @id @default(uuid())
+  city           String
+  contest_number Int
+  created_at     DateTime @default(now())
+  Bet            Bet[]
 
   Contest    Contest @relation(fields: [contest_id], references: [id])
   contest_id String

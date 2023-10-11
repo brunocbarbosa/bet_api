@@ -32,6 +32,7 @@ describe('Ticket Use Case', () => {
     const bets: number[] = [1, 2, 3, 4, 5, 6]
     const { ticket } = await sut.execute({
       city: 'Pouso Alegre',
+      contest_number: 2328,
       contestId: 'cont-01',
       bets,
     })
@@ -44,6 +45,7 @@ describe('Ticket Use Case', () => {
     await expect(() =>
       sut.execute({
         city: 'Pouso Alegre',
+        contest_number: 2328,
         contestId: 'cont-02',
         bets,
       }),
@@ -55,6 +57,7 @@ describe('Ticket Use Case', () => {
     await expect(() =>
       sut.execute({
         city: 'Pouso Alegre',
+        contest_number: 2328,
         contestId: 'cont-01',
         bets,
       }),
@@ -68,6 +71,7 @@ describe('Ticket Use Case', () => {
     await expect(() =>
       sut.execute({
         city: 'Pouso Alegre',
+        contest_number: 2328,
         contestId: 'cont-01',
         bets,
       }),

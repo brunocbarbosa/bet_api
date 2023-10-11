@@ -7,6 +7,7 @@ import { TicketGreaterThanMaximumError } from './errors/ticket-greater-than-maxi
 
 interface registerTicketRequest {
   city: string
+  contest_number: number
   contestId: string
   bets: number[]
 }
@@ -23,6 +24,7 @@ export class RegisterTicketUseCase {
 
   async execute({
     city,
+    contest_number,
     contestId,
     bets,
   }: registerTicketRequest): Promise<registerTicketResponse> {
@@ -38,6 +40,7 @@ export class RegisterTicketUseCase {
     const ticket = await this.ticketRepository.create(
       {
         city,
+        contest_number,
         contest_id: contestId,
       },
       bets,
