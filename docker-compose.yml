@@ -1,0 +1,14 @@
+# docker run --name bet_api -e POSTGRESQL_USERNAME=bet -e POSTGRESQL_PASSWORD=bet -e
+# POSTGRESQL_DATABASE=betapi -p 5432:5432 bitnami/postgresql
+
+version: '3'
+
+services:
+  bet-api-pg:
+    image: bitnami/postgresql
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRESQL_USERNAME=bet
+      - POSTGRESQL_PASSWORD=bet
+      - POSTGRESQL_DATABASE=betapi

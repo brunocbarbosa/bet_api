@@ -3,7 +3,7 @@
 An API with bet function, with study finality. With this API you will choose your numbers, how many numbers, where you have to match 5 numbers between 20 numbers, and, you can do how many games you want.
 
 ## Rules
-- Create the contest, where have a contest number
+- Create the contest, where have a contest number, number is unique
 - Create bets, where you type the city, and each bet card has an the contest number
 - Each bet is linked to the contest
 - Choose your numbers, between 5 and 15
