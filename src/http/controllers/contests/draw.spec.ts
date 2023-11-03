@@ -13,7 +13,7 @@ describe('draw (e2e)', () => {
   })
 
   it('should be able to draw a contest', async () => {
-    const contest = await createContest(app)
+    const contest = await createContest()
 
     const res = await request(app.server)
       .get(`/contests/${contest.id}`)

@@ -12,7 +12,17 @@ export class PrismaTicketRepository implements TicketRepository {
   }
 
   async findBetsById(id: string) {
-    return null
+    const bet = await prisma.ticket.findMany({
+      where: {
+        id,
+      },
+
+      select: {
+        Bet: true,
+      },
+    })
+
+    return bet[0].Bet
   }
 
   async create(data: Prisma.TicketUncheckedCreateInput, bets: number[]) {

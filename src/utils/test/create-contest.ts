@@ -1,7 +1,6 @@
 import { prisma } from '@/lib/prisma'
-import { FastifyInstance } from 'fastify'
 
-export async function createContest(app: FastifyInstance) {
+export async function createContest() {
   return prisma.contest.create({
     data: {
       name: 'Mega Money',
