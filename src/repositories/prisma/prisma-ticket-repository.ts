@@ -1,7 +1,6 @@
 import { Prisma } from '@prisma/client'
 import { TicketRepository } from '../ticket-repository'
 import { prisma } from '@/lib/prisma'
-import { randomUUID } from 'crypto'
 
 export class PrismaTicketRepository implements TicketRepository {
   async findById(id: string) {
