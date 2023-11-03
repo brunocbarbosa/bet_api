@@ -12,10 +12,10 @@ export async function register(req: FastifyRequest, rep: FastifyReply) {
     prize: z.number(),
     raffle_date: z.coerce.date(),
   })
-  console.log('chegou aqui 1')
+
   const { number, min_number, max_number, name, prize, raffle_date } =
     registerContestSchema.parse(req.body)
-  console.log('chegou aqui 2')
+
   try {
     const registerContestUseCase = makeRegisterContestUseCase()
 

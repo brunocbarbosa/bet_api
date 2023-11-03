@@ -3,10 +3,12 @@ import { env } from './env'
 import { ZodError } from 'zod'
 
 import { contestsRoutes } from './http/controllers/contests/routes'
+import { ticketRoutes } from './http/controllers/ticket/router'
 
 export const app = fastify()
 
 app.register(contestsRoutes)
+app.register(ticketRoutes)
 
 app.setErrorHandler((error, _req, rep) => {
   if (error instanceof ZodError) {
