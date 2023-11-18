@@ -4,10 +4,11 @@
   "description": "An API with bet function, with study finality. With this API you will choose your numbers, how many numbers, where you have to match 5 numbers between 20 numbers, and, you can do how many games you want.",
   "main": "index.js",
   "scripts": {
-    "start": "node dist/server.js",
+    "start": "node build/server.js",
     "dev": "tsx watch src/server.ts",
     "test:create-prisma-environment": "npm link ./prisma/vitest-environment-prisma",
     "test:install-prisma-environment": "npm link vitest-environment-prisma",
+    "build": "tsup src --out-dir build",
     "prisma:generate": "npx prisma generate",
     "prisma:studio": "npx prisma studio",
     "prisma:migrate:dev": "npx prisma migrate dev",
