@@ -8,7 +8,6 @@ import { TicketBetsNotFoundError } from './errors/ticket-bets-not-found-error'
 interface CheckTicketResultRequest {
   ticketId: string
   contestId: string
-  resultNumbers: number[]
 }
 
 interface CheckTicketResultResponse {
@@ -25,7 +24,6 @@ export class CheckTicketResultUseCase {
   async execute({
     ticketId,
     contestId,
-    resultNumbers,
   }: CheckTicketResultRequest): Promise<CheckTicketResultResponse> {
     const contest = await this.contestRepository.findById(contestId)
     const ticket = await this.ticketRepository.findById(ticketId)
@@ -39,12 +37,16 @@ export class CheckTicketResultUseCase {
 
     if (!bets) throw new TicketBetsNotFoundError()
 
+    const resultNumbers = contest.draw_numbers.split(',')
+
     const hits: number[] = []
 
-    resultNumbers.forEach((number) => {
+    resultNumbers.forEach((result) => {
       for (const bet of bets) {
-        if (number === bet.bet_number) {
-          hits.push(number)
+        const resultNumber = parseInt(result)
+
+        if (resultNumber === bet.bet_number) {
+          hits.push(resultNumber)
         }
       }
     })

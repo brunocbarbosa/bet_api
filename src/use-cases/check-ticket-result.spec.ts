@@ -54,7 +54,6 @@ describe('Check ticket Use Case', () => {
     const { hits, result } = await sut.execute({
       contestId: 'cont-01',
       ticketId: ticket.id,
-      resultNumbers: drawNumbers,
     })
 
     expect(hits).toEqual(drawNumbers)
@@ -78,7 +77,6 @@ describe('Check ticket Use Case', () => {
       sut.execute({
         contestId: 'cont-02',
         ticketId: ticket.id,
-        resultNumbers: drawNumbers,
       }),
     ).rejects.toBeInstanceOf(ContestNotFoundError)
   })
@@ -100,7 +98,6 @@ describe('Check ticket Use Case', () => {
       sut.execute({
         contestId: 'cont-01',
         ticketId: `${ticket.id}1`,
-        resultNumbers: drawNumbers,
       }),
     ).rejects.toBeInstanceOf(TicketNotFoundError)
   })
@@ -122,7 +119,6 @@ describe('Check ticket Use Case', () => {
       sut.execute({
         contestId: 'cont-01',
         ticketId: ticket.id,
-        resultNumbers: drawNumbers,
       }),
     ).rejects.toBeInstanceOf(TicketContestNumberDifferentError)
   })

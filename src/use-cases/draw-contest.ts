@@ -50,7 +50,7 @@ export class DrawContestUseCase {
 
     drawNumbers.sort((a, b) => a - b)
 
-    const updatedContest = await this.contestRepository.updateDrawnumbers(
+    const updatedContest = await this.contestRepository.updateDrawNumbers(
       contest.id,
       drawNumbers.toString(),
     )

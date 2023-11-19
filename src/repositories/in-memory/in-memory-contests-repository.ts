@@ -21,13 +21,14 @@ export class InMemoryContestsRepository implements ContestRepository {
     return contest
   }
 
-  async updateDrawnumbers(id: string, drawNumbers: string) {
-    const updatedData = { draw_numbers: drawNumbers }
-    const contest = this.items.find(
-      (item) => item.id === id ?? { ...item, ...updatedData },
-    )
+  async updateDrawNumbers(id: string, drawNumbers: string) {
+    const contestIndex = this.items.findIndex((item) => item.id === id)
 
-    if (!contest) return null
+    if (contestIndex === -1) return null
+
+    this.items[contestIndex].draw_numbers = drawNumbers
+
+    const contest = this.items[contestIndex]
 
     return contest
   }
