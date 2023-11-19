@@ -32,6 +32,7 @@ describe('Check ticket Use Case', () => {
       min_number: 5,
       max_number: 15,
       prize: 1000000,
+      draw_numbers: 'null',
       raffle_date: new Date(),
       created_at: new Date(),
     })

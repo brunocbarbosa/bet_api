@@ -22,6 +22,7 @@ describe('Draw Contest use Case', () => {
       min_number: 5,
       max_number: 15,
       prize: 1000000,
+      draw_numbers: 'null',
       raffle_date: new Date(),
       created_at: new Date(),
     })
@@ -33,6 +34,7 @@ describe('Draw Contest use Case', () => {
       min_number: 5,
       max_number: 15,
       prize: 1000000,
+      draw_numbers: 'null',
       raffle_date: new Date('2023-10-10T00:00:00.000Z'),
       created_at: new Date(),
     })

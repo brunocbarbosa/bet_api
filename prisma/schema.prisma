@@ -11,15 +11,16 @@ datasource db {
 }
 
 model Contest {
-  id          String   @id @default(uuid())
-  number      Int      @unique
-  min_number  Int
-  max_number  Int
-  name        String
-  prize       Float
-  raffle_date DateTime
-  created_at  DateTime @default(now())
-  Ticket      Ticket[]
+  id           String   @id @default(uuid())
+  number       Int      @unique
+  min_number   Int
+  max_number   Int
+  name         String
+  prize        Float
+  draw_numbers String   @default("null")
+  raffle_date  DateTime
+  created_at   DateTime @default(now())
+  Ticket       Ticket[]
 }
 
 model Ticket {
