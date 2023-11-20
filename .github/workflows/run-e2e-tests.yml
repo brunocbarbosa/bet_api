@@ -26,5 +26,4 @@ jobs:
       - run: npm ci
       - run: npm run test:e2e
         env:
-          JWT_SECRET: testing
           DATABASE_URL: "postgresql://bet:bet@localhost:5432/betapi?schema=public"

@@ -21,6 +21,18 @@ export class InMemoryContestsRepository implements ContestRepository {
     return contest
   }
 
+  async updateDrawNumbers(id: string, drawNumbers: string) {
+    const contestIndex = this.items.findIndex((item) => item.id === id)
+
+    if (contestIndex === -1) return null
+
+    this.items[contestIndex].draw_numbers = drawNumbers
+
+    const contest = this.items[contestIndex]
+
+    return contest
+  }
+
   async create(data: Prisma.ContestCreateInput) {
     const contest = {
       id: randomUUID(),
@@ -29,6 +41,7 @@ export class InMemoryContestsRepository implements ContestRepository {
       max_number: data.max_number,
       name: data.name,
       prize: data.prize,
+      draw_numbers: 'null',
       raffle_date: new Date(data.raffle_date),
       created_at: new Date(),
     }

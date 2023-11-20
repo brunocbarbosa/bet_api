@@ -20,6 +20,7 @@ After created you can create tickets you will choose your numbers, where you hav
                                               max_number: Number,
                                               prize: Number,
                                               raffle_date: Date,
+- GET | /contests/one&contestNumber={integer} | Return a contest 
 - GET | /contests/:contestId | Draw a game returning draw numbers 
 
 ## Ticket
