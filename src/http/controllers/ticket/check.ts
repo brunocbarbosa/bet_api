@@ -8,11 +8,7 @@ export async function check(req: FastifyRequest, rep: FastifyReply) {
     ticketId: z.string().uuid(),
     contestId: z.string().uuid(),
   })
-  const checkTicketBodySchema = z.object({
-    drawNumbers: z.number().array(),
-  })
 
-  const { drawNumbers } = checkTicketBodySchema.parse(req.body)
   const { ticketId, contestId } = checkTicketParamsSchema.parse(req.params)
 
   try {
@@ -21,7 +17,6 @@ export async function check(req: FastifyRequest, rep: FastifyReply) {
     const { hits, result } = await checkTicketUseCase.execute({
       ticketId,
       contestId,
-      resultNumbers: drawNumbers,
     })
 
     return rep.status(200).send({ hits, result })

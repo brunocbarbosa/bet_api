@@ -4,5 +4,5 @@ import { check } from './check'
 
 export async function ticketRoutes(app: FastifyInstance) {
   app.post('/tickets', register)
-  app.post('/tickets/check/:ticketId/:contestId', check)
+  app.get('/tickets/check/:ticketId/:contestId', check)
 }

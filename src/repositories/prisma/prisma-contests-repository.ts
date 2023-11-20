@@ -19,6 +19,17 @@ export class PrismaContestsRepository implements ContestRepository {
     })
   }
 
+  async updateDrawNumbers(id: string, drawNumbers: string) {
+    return prisma.contest.update({
+      where: {
+        id,
+      },
+      data: {
+        draw_numbers: drawNumbers,
+      },
+    })
+  }
+
   async create(data: Prisma.ContestCreateInput) {
     return prisma.contest.create({
       data,
