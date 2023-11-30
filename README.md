@@ -4,6 +4,18 @@
 An simple API with bet function, with study finality. With this API, will can create a contest, choosing the raffle date, minimum bet numbers, the choosed the minimum, this number is how many hits to win the game and the maximum, the maximum of numbers you can choose, but hitting the minimum you win.
 After created you can create tickets you will choose your numbers, where you have to match at least the mimum of the contest.
 
+## Concepts
+- Typescript
+- Fastify
+- Docker/Docker Compose
+- Vitest
+- Supertest
+- Zod
+- SOLID
+- Prisma ORM
+- PostgreSQL
+- ESLint
+
 ## Instructions
 - Clone the repository from Github;
 - Type the command `npm install` or `npm i` to install all dependences;
